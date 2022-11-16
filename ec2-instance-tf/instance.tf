@@ -8,4 +8,10 @@ resource "aws_instance" "web" {
   tags = {
     Name = "HelloWorld"
   }
-}
+  user_data =<<EOF
+#!/bin/bash
+sudo apt-get update
+sudo apt-get upgrade -y  
+sudo apt-get install nginx -y 
+EOF
+}  
